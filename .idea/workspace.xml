@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bee4ea5-63be-415a-a40b-0bccaefa4ed5" name="Changes" comment="Taches : &#10;-ajout de l'UML dans le projet &#10;-Ecriture dans la classe 'UneFenetre' pour tester l'execution">
+    <list default="true" id="5bee4ea5-63be-415a-a40b-0bccaefa4ed5" name="Changes" comment="Taches : &#10;-ecriture du code de la méthode run() dans la classe UnMobile.java (deplacement du mobile de gauche à droite et de droite à gauche)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UnMobile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UnMobile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UneFenetre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UneFenetre.java" afterDir="false" />
@@ -102,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727423028003</updated>
       <workItem from="1727423029056" duration="606000" />
-      <workItem from="1727423645299" duration="4708000" />
+      <workItem from="1727423645299" duration="5745000" />
     </task>
     <task id="LOCAL-00001" summary="commit de test">
       <option name="closed" value="true" />
@@ -120,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727429422582</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Taches : &#10;-ecriture du code de la méthode run() dans la classe UnMobile.java (deplacement du mobile de gauche à droite et de droite à gauche)">
+      <option name="closed" value="true" />
+      <created>1727431808495</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727431808495</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit de test" />
     <MESSAGE value="Taches : &#10;-ajout de l'UML dans le projet &#10;-Ecriture dans la classe 'UneFenetre' pour tester l'execution" />
-    <option name="LAST_COMMIT_MESSAGE" value="Taches : &#10;-ajout de l'UML dans le projet &#10;-Ecriture dans la classe 'UneFenetre' pour tester l'execution" />
+    <MESSAGE value="Taches : &#10;-ecriture du code de la méthode run() dans la classe UnMobile.java (deplacement du mobile de gauche à droite et de droite à gauche)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Taches : &#10;-ecriture du code de la méthode run() dans la classe UnMobile.java (deplacement du mobile de gauche à droite et de droite à gauche)" />
   </component>
 </project>

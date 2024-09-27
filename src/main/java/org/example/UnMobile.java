@@ -7,6 +7,7 @@ class UnMobile extends JPanel implements Runnable
     int saLargeur, saHauteur, sonDebDessin;
     final int sonPas = 10, sonTemps=20, sonCote=40;
 
+
     UnMobile(int telleLargeur, int telleHauteur)
     {
         super();
