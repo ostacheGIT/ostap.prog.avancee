@@ -1,4 +1,4 @@
-package org.example;
+package tp1;
 import java.awt.*;
 import javax.swing.*;
 

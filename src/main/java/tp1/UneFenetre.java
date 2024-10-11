@@ -1,8 +1,6 @@
-package org.example;
+package tp1;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 
 class UneFenetre extends JFrame

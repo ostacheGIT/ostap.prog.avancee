@@ -1,4 +1,4 @@
-package org.example;
+package tp1;
 
 public class TpMobile
 {
