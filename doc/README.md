@@ -8,11 +8,14 @@
 
 #### Exercice 4 :
 
-Il faut implementer les semaphores pour les mobiles de la manière :
+1) Il faut implementer les semaphores pour les mobiles de la manière :
 -on a plusieurs mobiles et plusieurs colonnes 
 -quand les mobiles arrivent au bout de la colonnes ils sont stoppé et dans le wait
 -un seul d'eux peut passer à la fois
 et pareil pour le retour
+
+2) Ensuite, il faut implémenter un systeme qui genere un nombre random pour le pas du mobile (sonPas),
+pour ensuite avoir un liste de mobiles avec des vitesses différentes.
 
 ### TP2 : Affichage / Semaphores
 
