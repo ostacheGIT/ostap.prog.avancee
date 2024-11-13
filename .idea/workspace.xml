@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bee4ea5-63be-415a-a40b-0bccaefa4ed5" name="Changes" comment="Taches : &#10;-Début de l'exercice 3" />
+    <list default="true" id="5bee4ea5-63be-415a-a40b-0bccaefa4ed5" name="Changes" comment="Taches : &#10;-Début de l'exercice 3">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tp1/UneFenetre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tp1/UneFenetre.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +43,9 @@
     &quot;accountId&quot;: &quot;beab92a6-073a-4cd3-af6d-1bbb07a52400&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -46,8 +60,11 @@
     "Application.Main.executor": "Run",
     "Application.TpMobile.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ostap/ostap.prog.avancee",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -99,6 +116,7 @@
       <updated>1727423028003</updated>
       <workItem from="1727423029056" duration="606000" />
       <workItem from="1727423645299" duration="5907000" />
+      <workItem from="1731525233572" duration="4804000" />
     </task>
     <task id="LOCAL-00001" summary="commit de test">
       <option name="closed" value="true" />

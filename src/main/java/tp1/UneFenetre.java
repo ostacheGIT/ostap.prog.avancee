@@ -7,15 +7,9 @@ class UneFenetre extends JFrame
 {
     UnMobile sonMobile;
     private final int LARG=400, HAUT=100;
-    private final int NBRLIG=5, NBRCOL=0;
-
+    private final int NBRLIG=2, NBRCOL=2;
     public UneFenetre()
     {
-        // TODO
-        // ajouter sonMobile a la fenetre
-        // creer une thread laThread avec sonMobile
-        // afficher la fenetre
-        // lancer laThread
         super("Le mobile");
         Container leContainer = getContentPane();
         leContainer.setLayout (new GridLayout(NBRLIG, NBRCOL));
