@@ -173,6 +173,8 @@ Une section critique est un espace dans le code dédié où un seul processus(th
 _définition: 
 L'exclusion mutuelle est définie par l'accès à une ressource critique d'un processus P1 en excluant un autre processus P2 et réciproquement._
 
+> Dans notre cas, on repère ici ce qu'on appelle aussi un verrou MUTEX, car dans l'exercice un seul mobile peut entrer dans la colonne suivante et les autres sont en attente. Un autre mobile peut entrer seulement si le précédent a déjà parcouru la colonne. Si plusieurs mobiles sont bloqué en attente il va y'en avoir forcément un qui va commencer le parcours une fois qui celui qui s'éxécute sort de la colonne.
+
 ## TP2 : Affichage / Semaphores
 
 #### Exercice 1 : 
