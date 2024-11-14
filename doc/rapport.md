@@ -231,3 +231,18 @@ le fonctionnement :
 Ainsi, producteur crée un processus et le donne à moniteur (BAL est donc la classe de la quelle il hérite).
 Puis, moniteur(BAL) est consulté par consommateur.
 Enfin consommateur récupère le processus et le termine.
+
+>Plusieurs concepts sont donc évoqués ici : 
+>- L'exclusion mutuelle (définie précédement)
+>- Synchronisation : qui permet de coordonner l'accès à la boite aux lettres entre les producteurs et les consommateurs (2 threads au total : 1 pour les consommateurs et 1 pour le producteurs)
+>- Notion de blocking queue : est un concept de file d'attente qui ici permettera de gérer toute l'exécution.
+
+>Dans notre code les classes Producteur et Consommateur possèdent toutes les deux des méthodes run(). Producteur parcourt un alphabet et dépose les lettres grâce à la méthode deposer() de la classe BAL: 
+
+![img.png](images/img11.png)
+
+>et Consommateur possède une boucle infinie pour retirer les lettres de la BAL : 
+
+![img_1.png](images/img12.png)
+
+>La blocking queue elle se trouve dans la classe BAL.
