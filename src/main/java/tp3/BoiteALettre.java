@@ -1,34 +1,20 @@
 package tp3;
 
+
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
+
 public class BoiteALettre {
+    private BlockingQueue<Character> queue = new ArrayBlockingQueue<Character>(20);
+    public boolean deposer(Character lettreAPoster) throws InterruptedException {
+        return queue.offer(lettreAPoster, 200, TimeUnit.MILLISECONDS);
 
-    public String bufferLettre ;
-    public boolean available ;
-
-    public void depose(String lettre){
-        while (available) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-        bufferLettre = lettre;
-        available = true;
-        notifyAll();
     }
-
-    public String retire(){
-        while (!available) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-        available = false;
-        notifyAll();
-        return bufferLettre;
+    public Character retirer() throws InterruptedException {
+        return queue.poll(200, TimeUnit.MILLISECONDS);
     }
-
+    public int getQueueSize() {
+        return queue.size();
+    }
 }
