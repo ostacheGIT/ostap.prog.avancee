@@ -7,7 +7,7 @@ class UneFenetre extends JFrame
 {
     UnMobile sonMobile;
     private final int LARG=400, HAUT=100;
-    private final int NBRLIG=2, NBRCOL=2;
+    private final int NBRLIG=5, NBRCOL=0;
     public UneFenetre()
     {
         super("Le mobile");
@@ -25,19 +25,5 @@ class UneFenetre extends JFrame
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
         }
-
-//        JButton sonBouton1 = new JButton ("Start/Stop");
-//        leContainer.setSize(300, 100);
-//
-//        sonBouton1.addActionListener(new ActionListener()
-//        {
-//            public void actionPerformed(ActionEvent e)
-//            {
-//                //TODO
-//            }
-//        });
-//
-//        leContainer.add(sonBouton1);
-//        sonBouton1.setVisible(true);
     }
 }
