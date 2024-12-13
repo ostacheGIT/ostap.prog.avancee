@@ -12,7 +12,6 @@ Aspects : SIMD ou MIMD (voir cours)
 
 Méthode parallelisation :
 - Analyse de l'algo (but : trouver des taches donc boucles, parties du codes à parrallèliser).
-- suivre la méthode du cours.
 
 Parallélisme de tâche :
 - Decoupe tâche en plusieurs sous-tâches
@@ -26,7 +25,7 @@ chaque code = 2 phases principales :
 - phase de calcul
 - phase d'échange de données
 
-+ code de steve kaultz
++ code de steve kaultz à voir
 
 ### Assignement 102
 
@@ -65,8 +64,6 @@ Utilise un algorithme d'exécution avancé :
 Gestion du vol de tâches (Work Stealing).
 Ordonnancement des tâches, etc.
 
-
-
 ## 13/12
 
 code monte carlo + diagramme de classe
@@ -84,7 +81,7 @@ Tp = ntot/p * ti + (tcp)
 Sp = T1/Tp  = (ntot*ti) / (ntot/p * ti) + (tc)
 (temps d'exec)
 
-( scalabilité forte  zone negative veut dire je ralentis )
+( scalabilité forte  zone negative = je ralentis )
 
 Tp > T1
 Sp < 1
@@ -92,13 +89,13 @@ ntot/2 + 3/4 * ntot
 
 (si on met dans le petit zone 1/4 donc remplace 3/4 par 1/4 alors Tp<T1 Sp > 1)
 
-### Consignes tp : 
+### Consignes tp 13/12: 
 
-1) Executer et passer les parametres à l'éxécutable (A102 : ntot et nb processor;
-   Pi : ntot/p et p = nbworker) :
-- assignment102
-- PI
+1) Executer et passer les parametres à l'éxécutable (A102 : ntot et nb processor);
+   Pi : ntot/p et p = nbworker):
+      - assignment102
+      - PI 
 2) Avoir les mêmes sorties pour les 2 codes.
-- err relative |PI - pi| / pi
+- err relative (|PI - pi|) / pi
 - ntot, nb processus, tps            + printf("err ntot np tps", append); (sortie dans un fichier)
-3) Speedup "grossier" (voir comportement)
+3) Speedup "grossier" (voir comportement en gros)
