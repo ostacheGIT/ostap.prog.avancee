@@ -247,4 +247,6 @@ Enfin consommateur récupère le processus et le termine.
 
 ![img_1.png](images/img12.png)
 
->La blocking queue elle se trouve dans la classe BAL.
+> La blocking queue elle se trouve dans la classe BAL. Ainsi la classe Boulangerie est un wrap de la classe BlockingQueue (notions de offer et poll). Donc la véritable classe derrière est la classe BlockingQueue, avec les notion de offer() et poll().
+> La méthode poll() permet de récupérer et de supprimer l'élément le plus haut (tête) d'une file d'attente.
+> La méthode offer() permet d'insèrer l'élément spécifié dans cette file d'attente s'il est possible de le faire immédiatement.

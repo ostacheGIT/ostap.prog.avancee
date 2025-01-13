@@ -68,7 +68,7 @@ Ordonnancement des tâches, etc.
 
 code monte carlo + diagramme de classe
 
-Atomic (atomic integer) : operation pour incrementer une section critiqu.
+concept Atomic (atomic integer) : operation pour incrementer une section critiqu.
 moniteur = atomic et donc objet qui protege un int avec points d'entrer (incrementAndGet).
 
 ### speedup
