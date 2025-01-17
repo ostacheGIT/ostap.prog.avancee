@@ -99,3 +99,36 @@ ntot/2 + 3/4 * ntot
 - err relative (|PI - pi|) / pi
 - ntot, nb processus, tps            + printf("err ntot np tps", append); (sortie dans un fichier)
 3) Speedup "grossier" (voir comportement en gros)
+
+### 17/01
+
+prog parallele et distribué 
+concurrence 
+archi memoire partagé
+(Java thread, MC avec API Concurrent) modele et paradigme de pro parallele 
+
+
+mémoire distribué 
+java socket 
+
+Master (it worker,num worker) ---MasterWorker ---> Master calcul de pi
+Master (it worker,num worker) ---itworker ---> Wo
+Wo ---n_cibles---> Master (it worker,num worker)
+Master (it worker,num worker) ------> Wn-1
+Wn-1 ---n-=_cibles_n-1--> Master (it worker,num worker)
+
+
+Envois de message : 
+Master : client 
+Worker : serviteur
+
+* Master envoie N message contenant le nombre d'itération  (1 à Tous)
+* Chaque Wk envoie n_ciblek (Tous à 1)
+
+En JAVA : 
+En cours Client/Serveur   (tous/1)
+
+serveur send à client
+serveur recieve de client 
+client send à serveur
+serveur recieve de client
