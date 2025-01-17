@@ -132,3 +132,5 @@ serveur send à client
 serveur recieve de client 
 client send à serveur
 serveur recieve de client
+
+![img.png](img.png)
