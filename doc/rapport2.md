@@ -134,3 +134,7 @@ client send à serveur
 serveur recieve de client
 
 ![img.png](img.png)
+
+### 27/01 
+
+Exo : faire 10 tests par process 
