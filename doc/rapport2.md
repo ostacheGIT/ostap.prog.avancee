@@ -138,3 +138,7 @@ serveur recieve de client
 ### 27/01 
 
 Exo : faire 10 tests par process 
+
+### 29/01
+
+exo: tracer le courbe de sclabilité forte et faible en python
