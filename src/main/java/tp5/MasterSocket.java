@@ -2,6 +2,7 @@ package tp5;
 
 import java.io.*;
 import java.net.*;
+
 /** Master is a client. It makes requests to numWorkers.
  *
  */
@@ -13,7 +14,6 @@ public class MasterSocket {
     static BufferedReader[] reader = new BufferedReader[maxServer];
     static PrintWriter[] writer = new PrintWriter[maxServer];
     static Socket[] sockets = new Socket[maxServer];
-
 
     public static void main(String[] args) throws Exception {
 
@@ -96,7 +96,17 @@ public class MasterSocket {
             System.out.println("Available processors: " + numWorkers);
             System.out.println("Time Duration (ms): " + (stopTime - startTime) + "\n");
 
-            System.out.println( (Math.abs((pi - Math.PI)) / Math.PI) +" "+ totalCount*numWorkers +" "+ numWorkers +" "+ (stopTime - startTime));
+            String output = (Math.abs((pi - Math.PI)) / Math.PI) +" "+ totalCount*numWorkers +" "+ numWorkers +" "+ (stopTime - startTime);
+            System.out.println(output);
+
+            // Write output to file
+            try (FileWriter fw = new FileWriter("out_pi_salle_4ou8c.txt", true);
+                 BufferedWriter bw = new BufferedWriter(fw);
+                 PrintWriter out = new PrintWriter(bw)) {
+                out.println(output);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             System.out.println("\n Repeat computation (y/N): ");
             try{

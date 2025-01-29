@@ -2,6 +2,8 @@ package tp5;
 
 import java.io.*;
 import java.net.*;
+import java.util.Random;
+
 /**
  * Worker is a server. It computes PI by Monte Carlo method and sends
  * the result to Master.
@@ -11,13 +13,15 @@ public class WorkerSocket {
     private static boolean isRunning = true;
 
     /**
-     * compute PI locally by MC and sends the number of points
+     * compute PI locally by MC (Monte Carlo) and sends the number of points
      * inside the disk to Master.
      */
     public static void main(String[] args) throws Exception {
 
-        if (!("".equals(args[0]))) port=Integer.parseInt(args[0]);
-        System.out.println(port);
+        if (args.length > 0 && !("".equals(args[0]))) {
+            port = Integer.parseInt(args[0]);
+        }
+        System.out.println("Port: " + port);
         ServerSocket s = new ServerSocket(port);
         System.out.println("Server started on port " + port);
         Socket soc = s.accept();
@@ -34,9 +38,19 @@ public class WorkerSocket {
                 System.out.println("Server receives totalCount = " +  str);
 
                 // compute
-                System.out.println("TODO : compute Monte Carlo and send total");
+                int totalCount = Integer.parseInt(str);
+                int insideCircle = 0;
+                Random rand = new Random();
 
-                pWrite.println(str);         // send number of points in quarter of disk
+                for (int i = 0; i < totalCount; i++) {
+                    double x = rand.nextDouble();
+                    double y = rand.nextDouble();
+                    if (x*x + y*y <= 1) {
+                        insideCircle++;
+                    }
+                }
+
+                pWrite.println(insideCircle);         // send number of points in quarter of disk
             }else{
                 isRunning=false;
             }

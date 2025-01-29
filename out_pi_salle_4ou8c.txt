@@ -1,0 +1,3 @@
+erreure relative | ntot | nb process | temps exec
+
+
