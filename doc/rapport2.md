@@ -142,3 +142,16 @@ Exo : faire 10 tests par process
 ### 29/01
 
 exo: tracer le courbe de sclabilité forte et faible en python
+
+### 31/01 
+
+1) Validation MC avec Javasocket 
+2) Conception Integrer Pi.java dans WorkerSocket 
+ - diagramme de classe 
+ - graphe de tâches 
+
+![img_1.png](img_1.png)
+
+3) Validation
+4) Scalabilité sur 1 poste 
+5) Mise en oeuvre sur N postes
