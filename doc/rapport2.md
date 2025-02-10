@@ -155,3 +155,5 @@ exo: tracer le courbe de sclabilité forte et faible en python
 3) Validation
 4) Scalabilité sur 1 poste 
 5) Mise en oeuvre sur N postes
+
+### 10/02

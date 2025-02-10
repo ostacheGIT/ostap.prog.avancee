@@ -78,15 +78,4 @@ public class Master {
         return totalHits;
     }
 
-    public void appendResultsToFile(int numWorkers, long executionTime, double speedup, double pi, double relativeError, long totalCount) {
-        DecimalFormat df = new DecimalFormat("0.000000000000000E0");
-        String formattedRelativeError = df.format(relativeError);
-
-        try (FileWriter txtWriter = new FileWriter("pi_scalability.txt", true)) {
-            txtWriter.write(String.format("%d\t%d\t%.2f\t%.10f\t%s\t%d\n",
-                    numWorkers, executionTime, speedup, pi, formattedRelativeError, totalCount));
-        } catch (IOException e) {
-            System.err.println("Error writing to TXT: " + e.getMessage());
-        }
-    }
 }
