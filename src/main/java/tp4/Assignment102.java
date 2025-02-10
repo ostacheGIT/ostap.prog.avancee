@@ -44,14 +44,15 @@ class PiMonteCarlo {
 
 public class Assignment102 {
     public static void main(String[] args) {
-        int[] nThreadsList = {1, 2, 4, 8, 16, 32};
-        int n_tot = 16000000;
+        int[] nThreadsList = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+        int[] n_tot = {16000000};
 
-        try (FileWriter csvWriter = new FileWriter("out_ass102.txt", true)) {
-            csvWriter.append("erreure relative | ntot | nb process | speedup\n");
-        } catch (IOException e) {
-            System.err.println("Erreur lors de la création du fichier CSV : " + e.getMessage());
-            return;
+        for (int totalCount : n_tot) {
+            for (int thread : nThreadsList) {
+                for (int j = 0; j < 10; j++) {
+                    runExperiments(totalCount, thread);
+                }
+            }
         }
 
         long executionTime1Thread = 0;
@@ -73,12 +74,15 @@ public class Assignment102 {
             System.out.printf("%e | %d | %d | %.1f\n",
                     relativeError, n_tot, nThreads, speedup);
 
-            try (FileWriter csvWriter = new FileWriter("out_ass102.txt", true)) {
-                csvWriter.append(String.format("%e | %d | %d | %.1f\n",
-                        relativeError, n_tot, nThreads, speedup));
+            try (FileWriter txtWriter = new FileWriter("pi_scalability.txt", true)) {
+                txtWriter.write(String.format("%d\t%d\t%.2f\t%.10f\t%s\t%d\n",
+                        numWorkers, executionTime, speedup, pi, formattedRelativeError, totalCount));
             } catch (IOException e) {
-                System.err.println("Erreur lors de l'écriture dans le fichier CSV : " + e.getMessage());
+                System.err.println("Error writing to TXT: " + e.getMessage());
             }
         }
+    }
+
+    private static void runExperiments(int totalCount, int thread) {
     }
 }
