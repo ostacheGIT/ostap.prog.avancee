@@ -1,24 +1,21 @@
 package tp4;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Pi {
     public static void main(String[] args) throws Exception {
-        int[] numWorkersList = {1, 2, 4, 8, 16, 32}; // Test different numbers of workers
-        int totalCount = 16000000; // Total points remains constant for strong scalability
+        int[] numWorkersList = {1, 2, 3, 4, 5, 6}; // Test different numbers of workers
+        int[] totalCounts = {12000000, 120000000}; // Total points remains constant for strong scalability
 
         Master master = new Master();
-        master.runExperiments(numWorkersList, totalCount);
+        for (int totalCount : totalCounts) {
+            for (int workers : numWorkersList) {
+                for (int j = 0; j < 10; j++) {
+                    master.runExperiments(new int[]{workers}, totalCount);
+                }
+            }
+        }
     }
 }
 

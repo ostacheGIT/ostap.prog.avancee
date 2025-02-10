@@ -35,7 +35,7 @@ public class Master {
             // Calculate metrics
             double pi = 4.0 * hits / totalCount;
             double relativeError = Math.abs((pi - Math.PI) / Math.PI) * 100;
-            double speedup = (double) executionTime1Worker / executionTime;
+            double speedup = (executionTime != 0) ? (double) executionTime1Worker / executionTime : 0;
 
             // Format relative error
             DecimalFormat df = new DecimalFormat("0.000000000000000E0");
