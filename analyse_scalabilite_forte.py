@@ -46,11 +46,11 @@ def plot_speedup(speedup_data, nombre_process_data, ntot_values):
     plt.ylim(bottom=0)
     plt.gca().set_aspect('equal', adjustable='box')
 
-    x_ticks = np.arange(0, max_process + 1, 1)
-    y_ticks = np.arange(0, max(max(speedup) for speedup in speedup_data) + 1,
-                        1)
-    plt.xticks(x_ticks)
-    plt.yticks(y_ticks)
+    # x_ticks = np.arange(0, max_process + 1, 1)
+    #y_ticks = np.arange(0, max(max(speedup) for speedup in speedup_data) + 1,
+    #                    1)
+    #plt.xticks(x_ticks)
+    #plt.yticks(y_ticks)
 
     plt.show()
 
