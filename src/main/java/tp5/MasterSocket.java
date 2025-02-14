@@ -15,8 +15,9 @@ public class MasterSocket {
     static double sequentialTime;
 
     public static void main(String[] args) throws Exception {
-        int baseTotalCount = 16000000; // Base total count for weak scalability
-        boolean isStrongScalability = false; // Set to true for strong scalability, false for weak scalability
+        // Base total counts for scalability
+        int[] baseTotalCounts = {12000000};
+        boolean isStrongScalability = true; // Set to true for strong scalability, false for weak scalability
 
         BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
         String s;
@@ -42,18 +43,24 @@ public class MasterSocket {
 
             String message_repeat = "y";
 
-            // Sequential version
-            long startTime = System.currentTimeMillis();
-            double pi = 4.0 * baseTotalCount / (double)baseTotalCount;
-            long stopTime = System.currentTimeMillis();
-            sequentialTime = stopTime - startTime;
+            // Measure baseline execution time with 1 worker
+            long executionTime1Worker = 0;
+            for (int baseTotalCount : baseTotalCounts) {
+                int totalCount = baseTotalCount;
+                long startTime = System.nanoTime();
+                runExperiments(1, totalCount, 0);
+                long endTime = System.nanoTime();
+                executionTime1Worker = TimeUnit.MILLISECONDS.convert(endTime - startTime, TimeUnit.NANOSECONDS);
+            }
 
             while (message_repeat.equals("y")) {
-                for (int i = 1; i <= numWorkers; i++) {
-                    int totalCount = isStrongScalability ? baseTotalCount : baseTotalCount * i;
-                    for (int j = 0; j < numWorkers; j++) {
-                        System.out.println("Running experiment " + (j + 1) + " for " + i + " workers");
-                        runExperiments(i, totalCount);
+                for (int baseTotalCount : baseTotalCounts) {
+                    for (int i = 1; i <= numWorkers; i++) {
+                        int totalCount = isStrongScalability ? baseTotalCount : baseTotalCount * i;
+                        for (int j = 0; j < numWorkers; j++) {
+                            System.out.println("Running experiment " + (j + 1) + " for " + i + " workers");
+                            runExperiments(i, totalCount, executionTime1Worker);
+                        }
                     }
                 }
 
@@ -77,7 +84,8 @@ public class MasterSocket {
             ioE.printStackTrace();
         }
     }
-    private static void runExperiments(int numWorkers, int totalCount) {
+
+    private static void runExperiments(int numWorkers, int totalCount, long executionTime1Worker) {
         long startTime = System.nanoTime();
 
         // Send totalCount to each worker
@@ -99,13 +107,14 @@ public class MasterSocket {
         long executionTime = TimeUnit.MILLISECONDS.convert(endTime - startTime, TimeUnit.NANOSECONDS);
         double pi = 4.0 * totalInsideCircle / (double)totalCount;
         double relativeError = Math.abs((pi - Math.PI) / Math.PI) * 100;
+        double speedup = (executionTime != 0) ? (double) executionTime1Worker / executionTime : 0;
 
-        System.out.printf("Workers: %d  Time: %d ms  Pi: %.10f  Error: %e\n",
-                numWorkers, executionTime, pi, relativeError);
+        System.out.printf("Workers: %d  Time: %d ms  Pi: %.10f  Error: %e  Speedup: %.2f\n",
+                numWorkers, executionTime, pi, relativeError, speedup);
 
         try (FileWriter txtWriter = new FileWriter("pi_scalability.txt", true)) {
             txtWriter.write(String.format("%d\t%d\t%.2f\t%.10f\t%e\t%d\n",
-                    numWorkers, executionTime, 1.0, pi, relativeError, totalCount));
+                    numWorkers, executionTime, speedup, pi, relativeError, totalCount));
         } catch (IOException e) {
             System.err.println("Error writing to TXT: " + e.getMessage());
         }
