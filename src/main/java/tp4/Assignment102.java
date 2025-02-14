@@ -35,7 +35,10 @@ class PiMonteCarlo {
             executor.execute(worker);
         }
         executor.shutdown();
-        while (!executor.isTerminated()) {
+        try {
+            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
         value = 4.0 * nAtomSuccess.get() / nThrows;
         return value;
@@ -44,45 +47,39 @@ class PiMonteCarlo {
 
 public class Assignment102 {
     public static void main(String[] args) {
-        int[] nThreadsList = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-        int[] n_tot = {16000000};
+        int[] nThreadsList = {1, 2, 3, 4, 5, 6};
+        int baseTotalCount = 160000000 ;
+        boolean isStrongScalability = false; // Set to true for strong scalability, false for weak scalability
 
-        for (int totalCount : n_tot) {
-            for (int thread : nThreadsList) {
-                for (int j = 0; j < 10; j++) {
-                    runExperiments(totalCount, thread);
-                }
-            }
-        }
-
-        long executionTime1Thread = 0;
         for (int nThreads : nThreadsList) {
-            PiMonteCarlo piVal = new PiMonteCarlo(n_tot / nThreads);
-
-            long startTime = System.nanoTime();
-            double value = piVal.getPi(nThreads);
-            long endTime = System.nanoTime();
-
-            long executionTime = TimeUnit.MILLISECONDS.convert(endTime - startTime, TimeUnit.NANOSECONDS);
-            if (nThreads == 1) {
-                executionTime1Thread = executionTime;
-            }
-
-            double speedup = (double) executionTime1Thread / executionTime;
-            double relativeError = Math.abs((value - Math.PI) / Math.PI);
-
-            System.out.printf("%e | %d | %d | %.1f\n",
-                    relativeError, n_tot, nThreads, speedup);
-
-            try (FileWriter txtWriter = new FileWriter("pi_scalability.txt", true)) {
-                txtWriter.write(String.format("%d\t%d\t%.2f\t%.10f\t%s\t%d\n",
-                        numWorkers, executionTime, speedup, pi, formattedRelativeError, totalCount));
-            } catch (IOException e) {
-                System.err.println("Error writing to TXT: " + e.getMessage());
+            int totalCount = isStrongScalability ? baseTotalCount : baseTotalCount * nThreads;
+            for (int j = 0; j < 10; j++) {
+                runExperiments(totalCount, nThreads);
             }
         }
     }
 
-    private static void runExperiments(int totalCount, int thread) {
+    private static void runExperiments(int totalCount, int nThreads) {
+        PiMonteCarlo piVal = new PiMonteCarlo(totalCount);
+
+        long startTime = System.nanoTime();
+        double value = piVal.getPi(nThreads);
+        long endTime = System.nanoTime();
+
+        long executionTime = TimeUnit.MILLISECONDS.convert(endTime - startTime, TimeUnit.NANOSECONDS);
+        double relativeError = Math.abs((value - Math.PI) / Math.PI) * 100;
+
+        System.out.printf("Valeur approchée: %.10f\n", value);
+        System.out.printf("Erreur: %e\n", relativeError);
+        System.out.printf("N total: %d\n", totalCount);
+        System.out.printf("Nombre process: %d\n", nThreads);
+        System.out.printf("Temps d'exécution: %d ms\n", executionTime);
+
+        try (FileWriter txtWriter = new FileWriter("pi_scalability.txt", true)) {
+            txtWriter.write(String.format("%d\t%d\t%.2f\t%.10f\t%e\t%d\n",
+                    nThreads, executionTime, 1.0, value, relativeError, totalCount));
+        } catch (IOException e) {
+            System.err.println("Error writing to TXT: " + e.getMessage());
+        }
     }
 }
