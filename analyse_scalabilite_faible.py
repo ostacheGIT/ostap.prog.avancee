@@ -26,7 +26,7 @@ def plot_speedup(speedup, nombre_process):
 
     plt.plot(nombre_process, speedup, marker='o', linestyle='-', label='Speedup')
 
-    plt.title('Strong Scalability Curve')
+    plt.title('Weak Scalability Curve')
     plt.xlabel('Number of Processes')
     plt.ylabel('Speedup')
     plt.axhline(1, color='red', linestyle='--', label='Speedup = 1')
