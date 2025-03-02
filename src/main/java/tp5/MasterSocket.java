@@ -16,7 +16,7 @@ public class MasterSocket {
 
     public static void main(String[] args) throws Exception {
         // Base total counts for scalability
-        int[] baseTotalCounts = {12000000};
+        int[] baseTotalCounts = {12000000, 120000000};
         boolean isStrongScalability = true; // Set to true for strong scalability, false for weak scalability
 
         BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
